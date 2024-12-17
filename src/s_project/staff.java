@@ -1,7 +1,7 @@
 package s_project;
 import java.util.Scanner;
 import java.util.ArrayList;
-public abstract class staff extends person {
+public class staff extends person {
     protected int attendance = 20;
     protected int permission = 20;
     protected double income;
@@ -15,7 +15,7 @@ private ArrayList<String> messagesToPrincipal = new ArrayList<>();
 
     public staff() { }
 
-   
+       @Override
     public void attendanceAndPermission() {
         System.out.println("Attendance: " + attendance + ", Permissions: " + permission);
         if (permission > 0) {

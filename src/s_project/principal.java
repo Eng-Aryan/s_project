@@ -10,7 +10,7 @@ import java.util.Scanner;
  *
  * @author RTX
  */
-public abstract class principal extends person {
+public class principal extends person {
     
 
 
@@ -185,4 +185,9 @@ public void view(){
 
 
 }
+
+    public void attendanceAndPermission() {
+      
+    }
+
 }

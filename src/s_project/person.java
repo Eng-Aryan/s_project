@@ -26,7 +26,7 @@ public abstract class person {
     public int getId() { return id; }
     public String getAddress() { return address; }
 
-   
+      public abstract void attendanceAndPermission();
 
     public void add() {
         Scanner scanner = new Scanner(System.in);

@@ -17,7 +17,7 @@ public class student extends person {
 
     public student() { }
 
-
+    @Override
     public void attendanceAndPermission() {
         System.out.println("Attendance: " + attendance + ", Permissions: " + permission);
         if (permission > 0) {
