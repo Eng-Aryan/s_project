@@ -2,36 +2,70 @@
 package s_project;
 
 
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class person {
     protected String name;
+    protected String lname;  
+    protected String tname;
+    protected String blood;     
     protected int age;
-    protected int id;
+    protected String id;
     protected String address;
-
-    public person(String name, int age, int id, String address) {
+  HashSet<String> usedIds = new HashSet<>();
+    public person(String name, String lname, String tname, String blood,int age, String  id, String address) {
         this.name = name;
+        this.lname = lname;
+        this.tname = tname;
+        this.blood = blood;
         this.age = age;
         this.id = id;
         this.address = address;
     }
 
+ 
+
     public person() {
-        // Default constructor for dynamic input
+        // oveloading
     }
 
     public String getName() { return name; }
     public int getAge() { return age; }
-    public int getId() { return id; }
+    public String getId() { return id; }
     public String getAddress() { return address; }
 
-      public abstract void attendanceAndPermission();
+    public String getLname() {
+        return lname;
+    }
+
+    public String getTname() {
+        return tname;
+    }
+
+    public String getBlood() {
+        return blood;
+    }
+
+      public void attendanceAndPermission(){
+      
+      
+      
+      
+      
+      
+      }
 
     public void add() {
+          
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter name:");
+        System.out.println("Enter first name:");
         this.name = scanner.next();
+          System.out.println("Enter second name:");
+          this.lname = scanner.next();
+            System.out.println("Enter third name:");
+            this.tname = scanner.next();
+              System.out.println("Enter blood:");
+              this.blood = scanner.next();
         System.out.println("Enter age:");
         this.age = scanner.nextInt();
         System.out.println("Enter address:");

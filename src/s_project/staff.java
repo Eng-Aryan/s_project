@@ -7,13 +7,16 @@ public class staff extends person {
     protected double income;
     protected String department;
 private ArrayList<String> messagesToPrincipal = new ArrayList<>();
-    public staff(double income, String department, String name, int age, int id, String address) {
-        super(name, age, id, address);
+
+    public staff(double income, String department, String name, String lname, String tname, String blood, int age, String id, String address) {
+        super(name, lname, tname, blood, age, id, address);
         this.income = income;
         this.department = department;
     }
+  
 
-    public staff() { }
+    public staff() { //overloading
+                                    }
 
        @Override
     public void attendanceAndPermission() {
@@ -47,6 +50,27 @@ private ArrayList<String> messagesToPrincipal = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter department:");
         this.department = scanner.next();
+        System.out.println("1-fulltime 2-partime ");
+        int ch = scanner.nextInt();
+        if(ch==1){
+            System.out.println("Enter your salary :");
+            double salary = scanner.nextInt();
+       fulltime f = new fulltime(salary,income, department, name, lname, tname, blood, age, id, address);
+        }
+        else if (ch==2){
+            System.out.println("Enter hourlyRate and  hoursWorkedPerWeek");
+             double hourlyRate = scanner.nextDouble();
+            int hoursWorkedPerWeek = scanner.nextInt();
+      partime p = new partime(hourlyRate, hoursWorkedPerWeek,income, department, name, lname, tname, blood, age, id, address);
+       
+        
+        }
+   }
+    
+      @Override
+    public String toString() {
+        return "Staff [Name=" + name + ", ID=" + id + ", Attendance=" + attendance + ", Permissions=" + permission + ", Income=" + income + "]";
     }
 }
+
 

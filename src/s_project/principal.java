@@ -12,7 +12,8 @@ import java.util.Scanner;
  */
 public class principal extends person {
     
-
+int attendance = 20;
+int permission = 20;
 
 
 Scanner ara = new Scanner(System.in);
@@ -21,9 +22,13 @@ private ArrayList<student> students = new ArrayList<>();
 public principal() {
         //overlodin krawa
     }
-    public principal(String name, int age, int id, String address) {
-        super(name, age, id, address);
+
+    public principal(String name, String lname, String tname, String blood, int age, String id, String address) {
+        super(name, lname, tname, blood, age, id, address);
     }
+
+   
+   
 
     public void addStudent(student student) {
         students.add(student);
@@ -113,7 +118,7 @@ public principal() {
     public void manageSchool() {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Choose an action: view / delete / update / search / exit");
+            System.out.println("Choose an action: view / delete / update / profile / search / exit");
             String action = scanner.nextLine();
 
             switch (action.toLowerCase()) {
@@ -136,6 +141,10 @@ public principal() {
                     String searchKey = scanner.nextLine();
                     searchRecord(searchKey);
                     break;
+                     case "profile":
+                         System.out.println("attendance = " + attendance +" permission = "+ "permission");
+                         System.out.println(name + lname + tname + blood + age + id + address);
+                    break;
                 case "exit":
                     return;
                 default:
@@ -151,8 +160,8 @@ public void view(){
     System.out.println("Enter name");
     String name = ara.next();
     System.out.println("enter  id");
-    int id = ara.nextInt();
-    if(id%2 != 0){
+    String id = ara.next();
+    if(id.startsWith("s")){
         for (student student : students) {
             if (student.getName().equalsIgnoreCase(name)) {
                 
@@ -165,7 +174,7 @@ public void view(){
        // && String.valueOf(staffMember.getId()).equals(id)
         }
    
-    else if(id%2 ==0 && id !=0){ 
+    else if(id.startsWith("t")){ 
         for (staff staffMember : staff) {
             if (staffMember.getName().equalsIgnoreCase(name)) {
                 System.out.println("Found: " + staffMember);
@@ -180,14 +189,23 @@ public void view(){
 
     }
 
- else if(id==0){System.out.println("Managing as Principal.");
+ else if(id=="0"){System.out.println("Managing as Principal.");
                 manageSchool();}
 
 
 }
 
     public void attendanceAndPermission() {
-      
+          System.out.println("Attendance: " + attendance + ", Permissions: " + permission);
+        if (permission > 0) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Request permission? (yes/no):");
+            if (scanner.next().equalsIgnoreCase("yes")) {
+                permission--;
+                System.out.println("Permission granted. Remaining: " + permission);
+            }
+        }
+        
     }
 
 }

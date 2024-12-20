@@ -9,14 +9,17 @@ public class student extends person {
     private int grade;
     private ArrayList<String> messagesToPrincipal = new ArrayList<>();
 
-    public student(String transport, int grade, String name, int age, int id, String address) {
-        super(name, age, id, address);
+    public student(String transport, int grade, String name, String lname, String tname, String blood, int age, String id, String address) {
+        super(name, lname, tname, blood, age, id, address);
         this.transport = transport;
         this.grade = grade;
     }
 
-    public student() { }
+  
 
+    public student() { //overloading
+    }
+    
     @Override
     public void attendanceAndPermission() {
         System.out.println("Attendance: " + attendance + ", Permissions: " + permission);
@@ -57,6 +60,6 @@ public class student extends person {
 
     @Override
     public String toString() {
-        return "Student [Name=" + name + ", Age=" + age + ", Transport=" + transport + "]";
+        return "Student [ FirstName=" + name + ", secondName=" + lname + ", ThirdName=" + tname + ", Age=" + age + " Id=" + id + ", Grade=" + grade + ", Adress=" + address + ", Transport=" + transport + "]";
     }
 }
