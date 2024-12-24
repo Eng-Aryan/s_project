@@ -28,6 +28,9 @@ public class student extends person {
             System.out.println("Request permission? (yes/no):");
             if (scanner.next().equalsIgnoreCase("yes")) {
                 permission--;
+                
+                System.out.println("Pleas enter a message to principal why you wanna permission : ");
+                sendMessageToPrincipal();
                 System.out.println("Permission granted. Remaining: " + permission);
             }
         }

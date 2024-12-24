@@ -46,14 +46,14 @@ public abstract class person {
         return blood;
     }
 
-      public void attendanceAndPermission(){
+      public abstract void attendanceAndPermission();
       
       
       
       
       
       
-      }
+      
 
     public void add() {
           

@@ -23,8 +23,8 @@ public class operation extends person{
 
             switch (choice) {
                 case 1:
-                    System.out.println("Enter ID:");
-                     id = scanner.next();
+                    System.out.println("Enter ID: pleas start with s to sudent and t to staff");
+                     this.id = scanner.next();
                      
                     if (usedIds.contains(id)) {
                         System.out.println("ID already in use. Enter a unique ID.");
@@ -37,11 +37,13 @@ public class operation extends person{
                         student.add();
                         principal.addStudent(student);
                         student.sendMessageToPrincipal();
-                    } else {
+                    } else if(id.startsWith("t")) {
                         staff staff = new staff() {};
                         staff.add();
                         principal.addStaff(staff);
+                         staff.sendMessageToPrincipal();
                     }
+                    else {System.out.println("Pleas enter s to sutudent and enter t to teacher");}
                     break;
 
                 case 2:
@@ -59,6 +61,10 @@ public class operation extends person{
        
           
  }
+
+    @Override
+    public void attendanceAndPermission() {
+   }
 
 }
     

@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-//principal class
+
 package s_project;
 import java.util.ArrayList;
 import java.util.Scanner;
-/**
- *
- * @author RTX
- */
 public class principal extends person {
     
 int attendance = 20;
@@ -158,42 +150,39 @@ public void view(){
 
  boolean found = false;
     System.out.println("Enter name");
-    String name = ara.next();
+    String name1= ara.next();
     System.out.println("enter  id");
-    String id = ara.next();
-    if(id.startsWith("s")){
+    String id1 = ara.next();
+    
+
         for (student student : students) {
-            if (student.getName().equalsIgnoreCase(name)) {
+            if (student.getName().equalsIgnoreCase(name1)) {
                 
                 System.out.println(" welcome " + student);
                 found = true;
                 student.attendanceAndPermission();
+               
             }
 
         }
-       // && String.valueOf(staffMember.getId()).equals(id)
-        }
-   
-    else if(id.startsWith("t")){ 
+    
         for (staff staffMember : staff) {
-            if (staffMember.getName().equalsIgnoreCase(name)) {
+            if (staffMember.getName().equalsIgnoreCase(name1)) {
                 System.out.println("Found: " + staffMember);
                 found = true;
                 staffMember.attendanceAndPermission();
+    
             }
         }
 
-        if (!found) {
-            System.out.println("No record found with the given name or ID.");
-        }
-
-    }
-
- else if(id=="0"){System.out.println("Managing as Principal.");
+      if(id.equalsIgnoreCase("0") && name.equalsIgnoreCase("yusra")){System.out.println("Managing as Principal.");
                 manageSchool();}
-
-
+else {   
+ 
+  System.out.println("No record found with the given name or ID.");
+ }
 }
+
 
     public void attendanceAndPermission() {
           System.out.println("Attendance: " + attendance + ", Permissions: " + permission);
@@ -204,8 +193,14 @@ public void view(){
                 permission--;
                 System.out.println("Permission granted. Remaining: " + permission);
             }
-        }
-        
+        }   
+     
+      
+    
+    
+    
+    
+    
     }
 
 }
